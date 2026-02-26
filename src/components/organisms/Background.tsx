@@ -11,7 +11,7 @@ function Background() {
       year: '2024',
       role: 'Senior Frontend Developer',
       company: 'Erakulis',
-      focus: 'Leading frontend team, architecting React/TypeScript applications with Redux and Vite',
+      focus: 'Lead frontend team, architecting React/TypeScript applications with Redux and Vite',
       highlights: ['Team Leadership', 'Component Libraries', 'Mobile Strategy']
     },
     {
@@ -116,6 +116,7 @@ function Background() {
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
+                $padding='16px 0 0 0'
               >
                 <FlexBox
                   $background='linear-gradient(to bottom, #8B9D83, #f5f5f4)'
@@ -157,6 +158,7 @@ function Background() {
                       $minWidth='16px'
                       $height='16px'
                       $borderRadius='50%'
+                      $margin='4px 0 0 0'
                     />
                     <FlexBox $direction='column' $gap='4px'>
                       <FlexBox $gap='8px'>
@@ -172,7 +174,7 @@ function Background() {
                           </Text>
                         </FlexBox>
                         <Text $size='small' $color='secondary'>
-                          {item.company}
+                          {item.company} {index === 0 ? '(Current)' : ''}
                         </Text>
                       </FlexBox>
                       <Text $size='body' $color='text'>
@@ -320,6 +322,7 @@ function Background() {
                   $borderRadius='16px'
                   $height='40px'
                   $width='40px'
+                  $minWidth='40px'
                   $bgColor='#E8EDE7'
                 >
                   <img src='assets/university.svg' alt='degree' height={20} width={20} />

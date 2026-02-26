@@ -29,6 +29,8 @@ interface Props {
   $zIndex?: number;
   $flex?: number;
   $background?: string;
+  $filter?: string;
+  $transform?: string;
 }
 
 const FlexBox = styled('div')<Props>`
@@ -60,6 +62,8 @@ const FlexBox = styled('div')<Props>`
   min-width: ${({ $minWidth }) => $minWidth || 'unset'};
   z-index: ${({ $zIndex }) => $zIndex || 1};
   flex: ${({ $flex }) => $flex || 'unset'};
+  filter: ${({ $filter }) => $filter || 'none'};
+  transform: ${({ $transform }) => $transform || 'none'};;
   text-decoration: none;
   color: inherit; 
   ${({ $full }) =>

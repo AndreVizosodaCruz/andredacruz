@@ -43,7 +43,6 @@ function About() {
         <FlexBox
           $direction='column'
           $gap={breakpoint === 'desktop' ? '48px' : '64px'}
-          $padding={breakpoint === 'desktop' ? '128px 24px' : '96px 24px'}
         >
           <FlexBox
             $direction={breakpoint === 'desktop' ? 'row' : 'column'}
