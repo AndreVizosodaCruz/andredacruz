@@ -1,0 +1,14 @@
+import * as React from "react";
+const SVGComponent = (props: any) => (
+  <svg viewBox="0 0 48 48" height={48} width={48} xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M4 36L12 12H16L24 36H20L18.4 31H9.6L8 36H4ZM10.8 27.5H17.2L14 17L10.8 27.5Z"
+      fill="#1C1917"
+    />
+    <path
+      d="M30 12C24.5 12 21 16 21 24C21 32 24.5 36 30 36C34 36 37 33.5 38.5 30L35 28C34 30.5 32.2 32 30 32C27 32 25 29 25 24C25 19 27 16 30 16C32.2 16 34 17.5 35 20L38.5 18C37 14.5 34 12 30 12Z"
+      fill="#8B9D83"
+    />
+  </svg>
+);
+export default SVGComponent;
