@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { FlexBox, Container } from '@atoms';
-import { useResponsive } from '@/hooks/useResponsive';
 
 interface SectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,16 +36,11 @@ const Section = ({
   ...rest
 }: React.PropsWithChildren<SectionProps>) => {
 
-  const { breakpoint } = useResponsive();
-
-  const padding = breakpoint === 'desktop' ? '128px 24px' : '96px 24px';
-
   return (
     <SectionWrapper {...rest}>
       <Container
         $variant={$variant}
         $direction="column"
-        $padding={padding}
         $fullHeight={$fullHeight}
       >
         {children}

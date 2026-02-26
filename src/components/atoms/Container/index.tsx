@@ -20,7 +20,7 @@ const Container = styled(FlexBox) <ContainerProps>`
   
   width: ${({ $variant = 'md' }) => containerWidths[$variant]};
   max-width: 100%;
-  padding: clamp(20px, 6vw, 90px);
+  padding: clamp(56px, 8vw, 128px) 24px;
 
   ${({ $fullHeight }) =>
     $fullHeight
