@@ -22,4 +22,14 @@ export const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
     scroll-margin-top: 100px;
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent; 
+  }
+
+  button, a {
+    font-family: inherit; 
+  }
 `;
