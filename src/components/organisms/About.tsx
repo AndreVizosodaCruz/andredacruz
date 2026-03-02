@@ -70,9 +70,9 @@ function About() {
                 architecting reusable component libraries.
               </Text>
               <Text $size='body' $color='secondary'>
-                Having co-founded a startup and led frontend teams at companies Erakulis,
+                Having co-founded a startup and led the frontend team at Erakulis,
                 I've learned that great products come from great partnerships. I'm now seeking meaningful
-                collaborations—whether as a co-founder, advisor, or simply connecting with like-minded builders.
+                collaborations whether as a co-founder, advisor, or simply connecting with like-minded builders.
               </Text>
               <Text $size='body' $color='muted'>
                 Fluent in Portuguese, Spanish, and English. Open to conversations worldwide.
