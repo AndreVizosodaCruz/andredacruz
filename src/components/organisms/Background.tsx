@@ -9,7 +9,7 @@ function Background() {
   const timeline = [
     {
       year: '2024',
-      role: 'Senior Frontend Developer',
+      role: 'Frontend Lead',
       company: 'Erakulis',
       focus: 'Lead frontend team, architecting React/TypeScript applications with Redux and Vite',
       highlights: ['Team Leadership', 'Component Libraries', 'Mobile Strategy']
