@@ -1,9 +1,11 @@
 import Reveal from '@animations/Reveal';
 import { Button, Section, Heading, MotionBox, Text, FlexBox } from '@atoms';
 import useScrollTo from '@/hooks/useScrollTo';
+import { getYearsFromFebruary2017 } from '@/helpers/utils';
 
 function Hero() {
   const scrollTo = useScrollTo();
+  const yearsOfExperience = getYearsFromFebruary2017();
 
   return (
     <Section
@@ -91,7 +93,7 @@ function Hero() {
           </Text>
 
           <Text $size='body' $maxWidth='576px' $lineHeight={1.7} $align='center'>
-            Senior Frontend Engineer with 8+ years building scalable, high-performance web applications. Now focused on leadership, strategy, and meaningful partnerships.
+            Senior Frontend Engineer with {yearsOfExperience}+ years building scalable, high-performance web applications. Now focused on leadership, strategy, and meaningful partnerships.
           </Text>
           <Text $size='caption' $color='muted' $align='center'>
             Based in Aveiro, Portugal • Open to remote opportunities worldwide

@@ -1,12 +1,7 @@
 import { useResponsive } from '@/hooks/useResponsive';
+import { getYearsFromFebruary2017 } from '@/helpers/utils';
 import Reveal from '@animations/Reveal';
 import { FlexBox, MotionBox, Text, Heading, Section } from '@atoms';
-
-const getYearsFromFebruary2017 = () => {
-  const start = new Date(2017, 1, 1);
-  const now = new Date();
-  return now.getFullYear() - start.getFullYear();
-};
 
 function About() {
 
