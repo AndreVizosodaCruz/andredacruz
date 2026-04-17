@@ -2,9 +2,16 @@ import { useResponsive } from '@/hooks/useResponsive';
 import Reveal from '@animations/Reveal';
 import { FlexBox, MotionBox, Text, Heading, Section } from '@atoms';
 
+const getYearsFromFebruary2017 = () => {
+  const start = new Date(2017, 1, 1);
+  const now = new Date();
+  return now.getFullYear() - start.getFullYear();
+};
+
 function About() {
 
   const { breakpoint } = useResponsive();
+  const yearsOfExperience = getYearsFromFebruary2017();
 
   const myValues = [
     {
@@ -64,7 +71,7 @@ function About() {
                 More than a developer
               </Heading>
               <Text $size='body' $color='secondary'>
-                I'm André da Cruz, a Senior Frontend Engineer based in Aveiro, Portugal, with over 8 years
+                I'm André da Cruz, a Senior Frontend Engineer based in Aveiro, Portugal, with over {yearsOfExperience} years
                 building scalable, high-performance web applications. Expert in React, TypeScript,
                 and modern frontend tooling with a proven track record of leading teams and
                 architecting reusable component libraries.
@@ -93,7 +100,7 @@ function About() {
               $minHeight={breakpoint === 'desktop' ? 'unset' : '250px'}
             >
               <Heading $size='h2' $weight={300}>
-                8 +
+                {yearsOfExperience} +
               </Heading>
               <Text $size='small' $weight={400} $textTransform='uppercase' $color='muted'>
                 Years of experience
