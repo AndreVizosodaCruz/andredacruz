@@ -13,19 +13,23 @@ export const useResponsive = () => {
   const [currentBreakpoint, setCurrentBreakpoint] = useState<Breakpoint>('desktop');
 
   useEffect(() => {
+    let rafId = 0;
     const handleResize = () => {
-      if (window.matchMedia(breakpoints.mobile).matches) {
-        setCurrentBreakpoint('mobile');
-      } else if (window.matchMedia(breakpoints.tablet).matches) {
-        setCurrentBreakpoint('tablet');
-      } else {
-        setCurrentBreakpoint('desktop');
-      }
+      rafId = requestAnimationFrame(() => {
+        if (window.matchMedia(breakpoints.mobile).matches) {
+          setCurrentBreakpoint('mobile');
+        } else if (window.matchMedia(breakpoints.tablet).matches) {
+          setCurrentBreakpoint('tablet');
+        } else {
+          setCurrentBreakpoint('desktop');
+        }
+      });
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 

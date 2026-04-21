@@ -1,6 +1,6 @@
 import * as React from "react";
-const SVGComponent = (props: any) => (
-  <svg viewBox="0 0 48 48" height={48} width={48} xmlns="http://www.w3.org/2000/svg" {...props}>
+const SVGComponent = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 48 48" height={48} width={48} xmlns="http://www.w3.org/2000/svg" role="img" aria-label="André da Cruz logo" {...props}>
     <path
       d="M4 36L12 12H16L24 36H20L18.4 31H9.6L8 36H4ZM10.8 27.5H17.2L14 17L10.8 27.5Z"
       fill="#1C1917"

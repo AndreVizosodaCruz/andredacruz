@@ -1,11 +1,12 @@
-import Reveal from '@animations/Reveal';
 import { Button, Section, Heading, MotionBox, Text, FlexBox } from '@atoms';
 import useScrollTo from '@/hooks/useScrollTo';
 import { getYearsFromFebruary2017 } from '@/helpers/utils';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 function Hero() {
   const scrollTo = useScrollTo();
   const yearsOfExperience = getYearsFromFebruary2017();
+  const { trackCTA } = useAnalytics();
 
   return (
     <Section
@@ -109,12 +110,12 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           $margin='16px 0 0 0'
         >
-          <Button $variant='secondary' as='a' href='#contact' onClick={(e) => scrollTo(e, 'contact')}>
+          <Button $variant='secondary' as='a' href='#contact' onClick={(e) => { trackCTA('Lets Connect'); scrollTo(e, 'contact'); }}>
             <Text $size='body' $color='white'>
               Let's Connect
             </Text>
           </Button>
-          <Button $variant='ghost' as='a' href='#about' onClick={(e) => scrollTo(e, 'about')}>
+          <Button $variant='ghost' as='a' href='#about' onClick={(e) => { trackCTA('Learn More'); scrollTo(e, 'about'); }}>
             <Text $size='body' $color='text' >
               Learn More
             </Text>

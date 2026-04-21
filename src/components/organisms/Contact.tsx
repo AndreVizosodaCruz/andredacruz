@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useResponsive } from '@/hooks/useResponsive';
 import Reveal from '@animations/Reveal';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 interface Link {
   icon: string;
@@ -42,9 +43,79 @@ const IconArrow = styled.img`
 
 const MotionContactLink = motion.create(StyledContactLink, { forwardMotionProps: true });
 
-function Contact() {
-
+const ContactLink = ({
+  icon,
+  label,
+  href,
+  description,
+}: Link) => {
   const { breakpoint } = useResponsive();
+  const { trackContact } = useAnalytics();
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    trackContact(label);
+    if (href.startsWith('mailto:')) {
+      window.location.href = href;
+    } else if (href.toLowerCase().endsWith('.pdf')) {
+      const link = document.createElement('a');
+      link.href = href;
+      link.download = '';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  return (
+    <MotionContactLink
+      onClick={handleClick}
+      initial={{ opacity: 0, y: 20, backgroundColor: 'transparent' }}
+      whileInView={{ opacity: 1, y: 0, backgroundColor: 'transparent' }}
+      viewport={{ once: true }}
+      whileHover={{
+        scale: 1.02,
+        transition: { type: 'tween', duration: 0.4 },
+        cursor: 'pointer',
+        backgroundColor: '#f5f5f5'
+      }}
+      $justify='space-between'
+      $align='center'
+      $gap='16px'
+      $padding='16px'
+      $width={breakpoint === 'mobile' ? 'calc(100% - 8px)' : 'calc(50% - 8px)'}
+      $minWidth='200px'
+      $borderRadius='16px'
+    >
+      <FlexBox $center $gap='16px'>
+        <IconBox
+          $align="center"
+          $justify="center"
+          $borderRadius="50%"
+        >
+          <img src={icon} alt={label} height={20} width={20} />
+        </IconBox>
+        <FlexBox $direction="column">
+          <Text $color="text" $size="body" $weight={500}>
+            {label}
+          </Text>
+          {description && (
+            <Text $color="muted" $size="small">
+              {description}
+            </Text>
+          )}
+        </FlexBox>
+      </FlexBox>
+      <IconArrow src='assets/arrow.svg' alt={label} height={20} width={20} />
+    </MotionContactLink>
+  )
+}
+
+function Contact() {
+  const { trackContact } = useAnalytics();
 
   const links = [
     {
@@ -72,71 +143,6 @@ function Contact() {
       description: 'Get my full resume',
     },
   ];
-
-  const ContactLink = ({
-    icon,
-    label,
-    href,
-    description,
-  }: Link) => {
-    return (
-      <MotionContactLink
-        onClick={(e: React.MouseEvent) => {
-          e.preventDefault();
-          e.stopPropagation();
-          if (href.startsWith('mailto:')) {
-            window.location.href = href;
-          } else if (href.toLowerCase().endsWith('.pdf')) {
-            const link = document.createElement('a');
-            link.href = href;
-            link.download = '';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          } else {
-            window.open(href, '_blank', 'noopener,noreferrer');
-          }
-        }}
-        initial={{ opacity: 0, y: 20, backgroundColor: 'transparent' }}
-        whileInView={{ opacity: 1, y: 0, backgroundColor: 'transparent' }}
-        viewport={{ once: true }}
-        whileHover={{
-          scale: 1.02,
-          transition: { type: 'tween', duration: 0.4 },
-          cursor: 'pointer',
-          backgroundColor: '#f5f5f5'
-        }}
-        $justify='space-between'
-        $align='center'
-        $gap='16px'
-        $padding='16px'
-        $width={breakpoint === 'mobile' ? 'calc(100% - 8px)' : 'calc(50% - 8px)'}
-        $minWidth='200px'
-        $borderRadius='16px'
-      >
-        <FlexBox $center $gap='16px'>
-          <IconBox
-            $align="center"
-            $justify="center"
-            $borderRadius="50%"
-          >
-            <img src={icon} alt={label} height={20} width={20} />
-          </IconBox>
-          <FlexBox $direction="column">
-            <Text $color="text" $size="body" $weight={500}>
-              {label}
-            </Text>
-            {description && (
-              <Text $color="muted" $size="small">
-                {description}
-              </Text>
-            )}
-          </FlexBox>
-        </FlexBox>
-        <IconArrow src='assets/arrow.svg' alt={label} height={20} width={20} />
-      </MotionContactLink>
-    )
-  }
 
   return (
     <Section
@@ -182,7 +188,7 @@ function Contact() {
             >
               {links.map((link) => (
                 <React.Fragment key={link.label}>
-                  {ContactLink(link)}
+                  <ContactLink {...link} />
                 </React.Fragment>
               ))}
             </FlexBox>
@@ -195,7 +201,7 @@ function Contact() {
               <Text $color="muted" $size="small">
                 Prefer a quick intro call?
               </Text>
-              <Button $variant='secondary' as='a' href='https://calendly.com/andredcruz/meeting' target='_blank'>
+              <Button $variant='secondary' as='a' href='https://calendly.com/andredcruz/meeting' target='_blank' onClick={() => trackContact('Schedule a call')}>
                 <Text $color="white" $size="small">
                   Schedule a call
                 </Text>

@@ -5,9 +5,15 @@ import { Navbar, Footer } from '@molecules'
 function MainLayout({ children }: { children: ReactNode }) {
   return (
     <FlexBox $direction='column' $bgColor='rgb(253, 252, 250)'>
-      <Navbar />
-      {children}
-      <Footer />
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        {children}
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </FlexBox>
   )
 }

@@ -271,7 +271,7 @@ function Background() {
                 $padding='24px'
                 $borderRadius='16px'
               >
-                {['React', 'TypeScript', 'Redux Toolkit', 'Vite', 'Capacitor.js', 'Jest', 'Storybook', 'CI/CD'].map((tech, i) => (
+                {['React', 'TypeScript', 'Redux Toolkit', 'Vite', 'Capacitor.js', 'Jest', 'Storybook', 'CI/CD'].map((tech) => (
                   <MotionBox
                     key={tech}
                     initial={{ opacity: 0, scale: 0 }}

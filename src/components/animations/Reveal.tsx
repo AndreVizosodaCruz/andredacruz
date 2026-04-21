@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { ReactNode, useRef, useEffect, useState } from "react";
+import { ReactNode, useRef } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -21,22 +21,12 @@ export default function Reveal({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, margin: "-80px" });
 
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isInView) setHasAnimated(true);
-  }, [isInView]);
-
   return (
     <motion.div
       ref={ref}
       className={className}
       initial={{ opacity: 0, y: -y }}
-      animate={
-        hasAnimated
-          ? { opacity: 1, y: 0 }
-          : { opacity: 0, y: -y }
-      }
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -y }}
       transition={{
         duration,
         delay,

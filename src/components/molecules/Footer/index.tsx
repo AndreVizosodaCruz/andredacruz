@@ -10,7 +10,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <StyledFooter>
+    <StyledFooter aria-label="Footer">
       <Text $size="small" $color='muted' $align='center'>
         © {currentYear} André da Cruz.
       </Text>

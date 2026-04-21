@@ -14,22 +14,37 @@
     content="André da Cruz, Senior Frontend Engineer, React Developer, TypeScript, Vite, Redux, Frontend Architecture, Portugal, Web Development" />
   <meta name="author" content="André da Cruz" />
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="msapplication-TileColor" content="#000000" />
+  <meta name="apple-mobile-web-app-title" content="André da Cruz" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="canonical" href="https://andredacruz.com/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="robots" href="/robots.txt" />
 
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="profile" />
+  <meta property="profile:first_name" content="André" />
+  <meta property="profile:last_name" content="da Cruz" />
+  <meta property="profile:username" content="andredacruz" />
   <meta property="og:title" content="André da Cruz | Senior Frontend Engineer" />
   <meta property="og:description"
     content="Engineering scalable React & TypeScript applications. 8+ years experience. Frontend architecture, leadership, and high-performance systems." />
   <meta property="og:image" content="https://andredacruz.com/assets/sharethumbnail.jpg" />
   <meta property="og:url" content="https://andredacruz.com/" />
   <meta property="og:site_name" content="André da Cruz" />
+  <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="André da Cruz | Senior Frontend Engineer" />
   <meta name="twitter:description"
     content="React & TypeScript specialist with 8+ years building scalable web applications." />
   <meta name="twitter:image" content="https://andredacruz.com/assets/sharethumbnail.jpg" />
+
   <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+  <link rel="apple-touch-icon" href="/assets/logo.svg" />
+  <link rel="manifest" href="/manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -39,28 +54,47 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "André da Cruz",
-    "jobTitle": "Senior Frontend Engineer",
-    "email": "joaoandredcruz@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Aveiro",
-      "addressCountry": "Portugal"
-    },
-    "knowsAbout": [
-      "React",
-      "TypeScript",
-      "Redux",
-      "Vite",
-      "Frontend Architecture",
-      "UI Component Libraries",
-      "Web Performance"
-    ],
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "Universidade de Aveiro"
-    }
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://andredacruz.com/#person",
+        "name": "André da Cruz",
+        "jobTitle": "Frontend Lead",
+        "url": "https://andredacruz.com/",
+        "email": "joaoandredcruz@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Aveiro",
+          "addressCountry": "PT"
+        },
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "Redux",
+          "Vite",
+          "Frontend Architecture",
+          "UI Component Libraries",
+          "Web Performance"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidade de Aveiro"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://andredacruz.com/#website",
+        "url": "https://andredacruz.com/",
+        "name": "André da Cruz",
+        "description": "Senior Frontend Engineer portfolio and personal website",
+        "inLanguage": "en-US",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://andredacruz.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
   }
   </script>
 </head>

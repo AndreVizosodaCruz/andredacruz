@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import useScrollTo from '@/hooks/useScrollTo';
 import { Button, FlexBox, Text } from '@/components/atoms';
 import useNavbarScroll from '@/hooks/useNavbarScroll';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 const NavContainer = styled(motion.nav)`
   position: fixed;
@@ -52,9 +53,12 @@ const Navbar = () => {
   const [hovered, setHovered] = useState<string | null>(null);
   const scrollTo = useScrollTo();
   const hidden = useNavbarScroll();
+  const { trackNavigation } = useAnalytics();
 
   return (
     <NavContainer
+      role="navigation"
+      aria-label="Main navigation"
       initial={{ y: -100, x: '-50%', opacity: 0 }}
       animate={{ y: hidden ? -100 : 0, x: '-50%', opacity: hidden ? 0 : 1 }}
       transition={{ duration: 0.4, ease: "circOut" }}
@@ -72,6 +76,7 @@ const Navbar = () => {
             onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               e.stopPropagation();
+              trackNavigation(link.id);
               scrollTo(e, link.id);
             }}
           >

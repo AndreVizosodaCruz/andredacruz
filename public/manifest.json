@@ -1,0 +1,17 @@
+{
+  "name": "André da Cruz — Senior Frontend Engineer",
+  "short_name": "André da Cruz",
+  "description": "Senior Frontend Engineer with 8+ years of experience building scalable React and TypeScript applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfcfafa",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "assets/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "48x48",
+      "purpose": "any"
+    }
+  ]
+}

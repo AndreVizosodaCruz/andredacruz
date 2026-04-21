@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /.env
+Disallow: /api
+Disallow: /_next
+Disallow: /.*
+
+Sitemap: https://andredacruz.com/sitemap.xml
