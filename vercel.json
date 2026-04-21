@@ -1,5 +1,5 @@
 {
-  "$schema": "https://vercel.com/schemas/vercel.json",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
       "source": "/.env(.*)?",
@@ -49,5 +49,5 @@
       "destination": "/index.html"
     }
   ],
-  "trailingSlash": "never"
+  "trailingSlash": false
 }
