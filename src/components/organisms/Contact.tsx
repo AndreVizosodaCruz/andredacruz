@@ -121,7 +121,7 @@ function Contact() {
     {
       icon: 'assets/linkedin.svg',
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/andrevcruz',
+      href: 'https://linkedin.com/in/joaoandredcruz',
       description: 'Let\'s connect professionally',
     },
     {
@@ -133,7 +133,7 @@ function Contact() {
     {
       icon: 'assets/github.svg',
       label: 'GitHub',
-      href: 'https://github.com/AndreVizosodaCruz',
+      href: 'https://github.com/joaoandredcruz',
       description: 'Check out my work',
     },
     {
